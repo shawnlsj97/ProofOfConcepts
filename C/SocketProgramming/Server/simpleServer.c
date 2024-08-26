@@ -36,8 +36,8 @@ int main() {
     int running = 1; // Control flag
     struct sockaddr_in cli_addr;
     while(running) {
-        socklen_t clilen = sizeof(cli_addr); // Reset size before each call to accept
-        int newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &clilen);
+        socklen_t cli_len = sizeof(cli_addr); // Reset size before each call to accept
+        int newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
         if (newsockfd < 0) {
             perror("ERROR on accept");
             exit(1);

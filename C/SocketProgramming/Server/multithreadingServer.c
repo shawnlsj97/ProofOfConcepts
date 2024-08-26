@@ -44,11 +44,11 @@ int main() {
     // 3) Listen for Connections
     listen(sockfd, 5); // allow up to 5 pending connections
 
-    // 4) Accept Connections Sequentially
+    // 4) Accept Connections
     struct sockaddr_in cli_addr;
     while(!quit) {
-        socklen_t clilen = sizeof(cli_addr); // Reset size before each call to accept
-        int newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &clilen);
+        socklen_t cli_len = sizeof(cli_addr); // Reset size before each call to accept
+        int newsockfd = accept(sockfd, (struct sockaddr*)&cli_addr, &cli_len);
         if (newsockfd < 0) {
             perror("ERROR on accept");
             exit(1);
